@@ -1,0 +1,72 @@
+.game-list-navbar {
+  color: #fff;
+  font-size: 1.6rem;
+  text-align: center;
+  background-image: linear-gradient(
+    rgb(255, 255, 255, 0.4),
+    rgb(255, 255, 255, 0.4)
+  );
+  width: fit-content;
+  margin: 0 auto 3rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.3),
+    0 6px 20px 0 rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.navbar-list {
+  list-style: none;
+}
+.navbar-list li {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.navbar-list li:last-child {
+  margin-right: 0;
+}
+
+.navbar-item {
+  font-family: "MedievalSharp";
+}
+
+.navbar-item:hover {
+  color: #ff914d;
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+.active-item {
+  color: #ff914d;
+}
+
+.navbar-separator {
+  font-family: "Montserrat";
+  color: #ff914d;
+}
+
+.navbar-separator:hover {
+  cursor: default;
+}
+
+@media (max-width: 750px) {
+  .game-list-navbar {
+    font-size: 1.3rem;
+  }
+  .navbar-list li {
+    margin-right: 1rem;
+  }
+
+  .navbar-list li:last-child {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 515px) {
+  .navbar-separator {
+    display: none !important;
+  }
+  .navbar-list {
+    display: flex;
+    flex-direction: column;
+  }
+}

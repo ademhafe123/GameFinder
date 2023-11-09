@@ -1,0 +1,7 @@
+#game-list {
+  background-image: url("../../images/body-bg.jpg");
+  background-repeat: repeat;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  position: relative;
+}

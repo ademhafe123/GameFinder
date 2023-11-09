@@ -1,0 +1,90 @@
+.game-card {
+  background-color: #fff;
+  padding: 1rem;
+  width: 350px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 1200px) {
+  .game-card {
+    width: 300px;
+  }
+  .card-img {
+    width: 250px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .game-card {
+    width: 350px;
+  }
+  .card-img {
+    width: 300px;
+  }
+}
+
+@media (max-width: 420px) {
+  .game-card {
+    width: 300px;
+  }
+  .card-img {
+    width: 250px;
+  }
+}
+
+.card-title-container {
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0 0 1px #000;
+}
+
+.card-img {
+  width: 300px;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0 auto;
+  aspect-ratio: calc(16 / 9);
+}
+
+.card-game-rating {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.star-icon {
+  color: gold;
+}
+
+.card-btn {
+  background-image: linear-gradient(to right, #213e6c, #4e7bc2);
+  color: #fff;
+  font-family: "ubuntu", "montserrat", "sans-serif";
+  font-size: 1.3rem;
+  height: 2.5rem;
+  width: 60%;
+  border-radius: 50px;
+  border: none;
+  margin: 0.5rem;
+  margin-top: 1rem;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-btn:hover {
+  transform: translateY(-3px);
+}

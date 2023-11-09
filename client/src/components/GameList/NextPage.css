@@ -1,0 +1,24 @@
+.next-page-btn {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 8rem;
+  bottom: 1rem;
+}
+
+.next-page-btn:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  color: #ff914d;
+}
+
+.next-page-icon {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.next-page-text {
+  font-size: 2rem;
+  font-family: "Ubuntu";
+}

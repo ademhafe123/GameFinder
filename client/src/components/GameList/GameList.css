@@ -1,0 +1,20 @@
+.game-list-container {
+  width: 90%;
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 3rem;
+  place-items: center;
+}
+
+@media (max-width: 1025px) {
+  .game-list-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .game-list-container {
+    grid-template-columns: 1fr;
+  }
+}
