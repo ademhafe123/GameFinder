@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import PageWrapperComponent from "./components/PageWrapperComponent/PageWrapperComponent";
 import GameListPage from "./pages/GameListPage";
 import TopGamesPage from "./pages/TopGamesPage";
 import LatestGamesPage from "./pages/LatestGamesPage";

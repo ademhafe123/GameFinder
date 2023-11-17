@@ -1,7 +1,7 @@
 const { default: axios } = require("axios");
 const API_KEY = "166815e958f742e08d79303565ed807f";
 
-const extractGames = (result) => {
+const extractGames = async (result) => {
   const resultToSend = [];
   result.forEach((game) => {
     //FOR ALL GAMES CREATE AN OBJECT, ADD IT TO ARRAY
@@ -40,12 +40,11 @@ const apiCall = async (url) => {
 };
 
 // CHECH FOR EXISTANCE OF RETRIEVED GAMES AND RETRIEVE GAMES IF ITS NULL
-const checkForRetrievedGames = async (retrievedGames) => {
-  if (retrievedGames === null) {
-    const url = "https://api.rawg.io/api/games?key=" + API_KEY;
-    const result = await gameServices.apiCall(url); // GETTING THE RAW DATA FROM API
-    retrievedGames = gameServices.extractGames(result); // EXTRACTING THE GAMES FROM RAW DATA
-  }
+const retrieveGames = async (retrievedGames, pageNumber) => {
+  const url =
+    "https://api.rawg.io/api/games?key=" + API_KEY + "&page=" + pageNumber;
+  const result = await gameServices.apiCall(url); // GETTING THE RAW DATA FROM API
+  retrievedGames = await gameServices.extractGames(result); // EXTRACTING THE GAMES FROM RAW DATA
   return retrievedGames;
 };
 
@@ -58,7 +57,7 @@ const searchGames = async (url) => {
       return "No games found!"; // NOTHING FOUND
     } else {
       const result = response.data.results; //SOMETHING FOUND
-      return extractGames(result); // EXTRACTING THE FOUND GAMES FROM RAW DATA
+      return await extractGames(result); // EXTRACTING THE FOUND GAMES FROM RAW DATA
     }
   } catch (error) {
     console.log(error);
@@ -70,7 +69,7 @@ const searchGames = async (url) => {
 const getPopularGames = (games) => {
   const popularGames = games;
   return popularGames.sort((game1, game2) =>
-    game1.ratingCount < game2.ratingCount ? 1 : -1
+    game1.ratingCount <= game2.ratingCount ? 1 : -1
   );
 };
 
@@ -95,7 +94,7 @@ const gameServices = {
   getLatestGames,
   getTopRatedGames,
   getPopularGames,
-  checkForRetrievedGames,
+  retrieveGames,
 };
 
 module.exports = gameServices;

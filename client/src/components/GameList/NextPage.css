@@ -1,24 +1,41 @@
-.next-page-btn {
+.move-page-container {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+}
+
+.move-page-btn {
   color: #fff;
   display: flex;
-  align-items: center;
-  position: absolute;
   right: 8rem;
   bottom: 1rem;
 }
 
-.next-page-btn:hover {
+.move-page-btn:hover {
   cursor: pointer;
   transform: translateY(-3px);
   color: #ff914d;
 }
 
-.next-page-icon {
+.move-page-icon {
   font-size: 2rem;
-  margin-left: 1rem;
+  margin: 0 1rem;
 }
 
-.next-page-text {
+.move-page-text {
+  width: max-content;
   font-size: 2rem;
   font-family: "Ubuntu";
+}
+
+@media (max-width: 650px) {
+  .move-page-icon,
+  .move-page-text {
+    font-size: 1.2rem;
+  }
 }

@@ -3,12 +3,12 @@ const gamesRouter = express.Router();
 
 const gamesController = require("../Controllers/gamesController");
 
-gamesRouter.get("/", gamesController.popularGames);
+gamesRouter.post("/", gamesController.popularGames);
 
 gamesRouter.post("/search-games", gamesController.searchGames);
 
-gamesRouter.get("/latest-games", gamesController.latestGames);
+gamesRouter.post("/latest-games", gamesController.latestGames);
 
-gamesRouter.get("/top-rated-games", gamesController.topRatedGames);
+gamesRouter.post("/top-rated-games", gamesController.topRatedGames);
 
 module.exports = gamesRouter;

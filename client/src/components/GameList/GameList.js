@@ -4,7 +4,7 @@ import "./GameList.css";
 import GameCard from "../GameCard/GameCard";
 
 import NextPage from "./NextPage";
-const GameList = ({ games }) => {
+const GameList = ({ games, hideNextPage }) => {
   return (
     <div className="game-list-container">
       {games !== null &&
@@ -18,7 +18,7 @@ const GameList = ({ games }) => {
             />
           );
         })}
-      <NextPage />
+      {!hideNextPage && <NextPage />}
     </div>
   );
 };

@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
 import "./GamesNavbar.css";
+import GameContext from "../../store/gameContext";
 
 const NavItem = (props) => {
   const navigate = useNavigate();
+  const { handleSetPageNumber } = useContext(GameContext);
 
   const handleClick = () => {
+    handleSetPageNumber(1);
     navigate(props.navigate);
   };
   return (

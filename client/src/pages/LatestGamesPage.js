@@ -1,21 +1,29 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import GameList from "../components/GameList/GameList";
-import GameContext from "../store/gameContext";
-import { latestGames } from "../services/gameServices";
 import PageWrapperComponent from "../components/PageWrapperComponent/PageWrapperComponent";
+import { latestGames } from "../services/gameServices";
+import GameContext from "../store/gameContext";
+import Loader from "../components/Loader/Loader";
+import { getPageNumber } from "../utils/utils";
 
 const LatestGamesPage = () => {
-  const { games, handleSetGames } = useContext(GameContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const { games, handleSetGames, pageNumber, handleSetPageNumber } =
+    useContext(GameContext);
+  const paginationNumber = parseInt(getPageNumber("page"));
+  handleSetPageNumber(paginationNumber ? paginationNumber : 1);
 
   useEffect(() => {
-    latestGames().then((response) => {
+    setIsLoading(true);
+    latestGames(pageNumber).then((response) => {
       handleSetGames(response.data);
+      setIsLoading(false);
     });
-  }, [handleSetGames]);
+  }, [handleSetGames, pageNumber]);
 
   return (
     <PageWrapperComponent>
-      <GameList games={games} />
+      {isLoading ? <Loader /> : <GameList games={games} />}
     </PageWrapperComponent>
   );
 };

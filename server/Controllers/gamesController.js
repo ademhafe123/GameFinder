@@ -6,8 +6,9 @@ let retrievedGames = null;
 
 // GET MOST POPULAR GAMES (DEFAULT FOR SHOWING)
 const popularGames = async (req, res) => {
-  retrievedGames = await gameServices.checkForRetrievedGames(retrievedGames); // CHECK IF THE RETRIEVED GAMES EXIST, IF NOT, RETRIEVE GAMES
-  const popularGames = gameServices.getPopularGames(retrievedGames);
+  const pageNumber = req.body.pageNumber;
+  retrievedGames = await gameServices.retrieveGames(retrievedGames, pageNumber);
+  const popularGames = await gameServices.getPopularGames(retrievedGames);
   res.send(popularGames);
 };
 
@@ -23,15 +24,19 @@ const searchGames = async (req, res) => {
 
 //  GET LATEST GAMES
 const latestGames = async (req, res) => {
-  retrievedGames = await gameServices.checkForRetrievedGames(retrievedGames); // CHECK IF THE RETRIEVED GAMES EXIST, IF NOT, RETRIEVE GAMES
-  const latestGames = gameServices.getLatestGames(retrievedGames); // GET THE LATEST GAMES FROM PREVIOUSLY RETRIEVED GAMES
+  const pageNumber = req.body.pageNumber;
+
+  retrievedGames = await gameServices.retrieveGames(retrievedGames, pageNumber); // CHECK IF THE RETRIEVED GAMES EXIST, IF NOT, RETRIEVE GAMES
+  const latestGames = await gameServices.getLatestGames(retrievedGames); // GET THE LATEST GAMES FROM PREVIOUSLY RETRIEVED GAMES
   res.send(latestGames);
 };
 
 // GET TOP RATED GAMES
 const topRatedGames = async (req, res) => {
-  retrievedGames = await gameServices.checkForRetrievedGames(retrievedGames); // CHECK IF THE RETRIEVED GAMES EXIST, IF NOT, RETRIEVE GAMES
-  const topRatedGames = gameServices.getTopRatedGames(retrievedGames); // GET THE TOP RATED GAMES FROM RETRIEVED GAMES
+  const pageNumber = req.body.pageNumber;
+
+  retrievedGames = await gameServices.retrieveGames(retrievedGames, pageNumber); // CHECK IF THE RETRIEVED GAMES EXIST, IF NOT, RETRIEVE GAMES
+  const topRatedGames = await gameServices.getTopRatedGames(retrievedGames); // GET THE TOP RATED GAMES FROM RETRIEVED GAMES
   res.send(topRatedGames);
 };
 
